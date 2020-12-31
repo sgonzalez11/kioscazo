@@ -122,7 +122,7 @@ export class CandiesNewComponent implements OnInit {
         this.task = this.storageImage.upload(path, file, {customMetadata});
         this.percentage = this.task.percentageChanges();
         this.snapshot = this.task.snapshotChanges();
-        this.downloadUrl = this.task.downloadURL();
+        // this.downloadUrl = this.task.downloadURL();
 
     }
 
