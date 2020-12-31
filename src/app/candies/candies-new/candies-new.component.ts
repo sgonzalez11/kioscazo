@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
+import {AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+// import {AngularFireStorage, AngularFireUploadTask} from 'angularfire2/storage';
 import {Observable} from 'rxjs';
 // import {Response} from '@angular/http';
 import {Candies} from '../../shared/candies.model';

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription ,  Observable } from "rxjs";
+import { Subscription ,  Observable } from 'rxjs';
 
 
 
-import { CandiesService } from "../candies.service";
-import { Candies } from "../../shared/candies.model";
-import { StorageService } from "../../shared/storage.service";
-import { FormArray, FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
+import { CandiesService } from '../candies.service';
+import { Candies } from '../../shared/candies.model';
+import { StorageService } from '../../shared/storage.service';
+import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { CandiesI } from "../../shared/candies";
-import { PurchasesI } from "../../shared/purchases";
+import { CandiesI } from '../../shared/candies';
+import { PurchasesI } from '../../shared/purchases';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalComponent } from "../../ngbd-modal/ngbd-modal.component";
+import { NgbdModalComponent } from '../../ngbd-modal/ngbd-modal.component';
 
 @Component({
   selector: 'app-candies-list',
@@ -36,7 +36,7 @@ export class CandiesListComponent implements OnInit {
 
   subscription: Subscription;
   closeResult: string;
-  acceptPurchase: boolean = false;
+  acceptPurchase = false;
 
 
   purchaseI: PurchasesI = {
@@ -45,7 +45,7 @@ export class CandiesListComponent implements OnInit {
     candieName: '',
     quantity: 0,
     price: 0
-  }
+  };
 
   public model: any;
   search = (text$: Observable<string>) => text$.debounceTime(200)
@@ -58,12 +58,12 @@ export class CandiesListComponent implements OnInit {
         items => {
           this.candiesI = items;
         });
-    this.initPurchaseForm()
+    this.initPurchaseForm();
   }
 
   private initPurchaseForm() {
-    let purchaseEmail = '';
-    let purchaseQuantity = '';
+    const purchaseEmail = '';
+    const purchaseQuantity = '';
 
     this.purchasesForm = new FormGroup({
       'email': new FormControl(purchaseEmail, Validators.required),
@@ -81,7 +81,7 @@ export class CandiesListComponent implements OnInit {
       this.candieIDetail = items;
       this.candieEditMode = true;
       console.log(this.candieIDetail);
-    })
+    });
   }
 
   /* New Purchase Using Firestore */
@@ -112,9 +112,9 @@ export class CandiesListComponent implements OnInit {
       .then((userResponse) => {
         if (userResponse) {
           this.storageService.addPurchase(this.purchaseI);
-          this.showSuccess()
+          this.showSuccess();
         } else {
-          this.showCancel()
+          this.showCancel();
         }
       })
       .catch((error) => {
@@ -163,5 +163,5 @@ export class CandiesListComponent implements OnInit {
  self.candies = data.json().filter(element => !!element);
  }
  );*/
-//this.candies = this.candieService.getCandies();
+// this.candies = this.candieService.getCandies();
 

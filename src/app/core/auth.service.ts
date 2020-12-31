@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import * as firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import 'firebase/auth';
+import firebase from 'firebase/app';
+
+// import { AngularFireAuth } from 'angularfire2/auth';
+// import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+// import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 
 
@@ -41,7 +46,7 @@ export class AuthService {
       })
       .catch(
         error => console.log('Something went wrong: ', error)
-      )
+      );
   }
 
   googleLogin() {
@@ -53,7 +58,7 @@ export class AuthService {
       })
       .catch(
         error => console.log('Something went wrong: ', error)
-      )
+      );
   }
 
   private oAuthLogin(provider) {
@@ -61,7 +66,8 @@ export class AuthService {
   }
 
   getTokenKiosco() {
-    return firebase.auth().currentUser.getToken();
+    // return firebase.auth().currentUser.getToken();
+    return firebase.auth().currentUser.getIdToken();
   }
 
 }
