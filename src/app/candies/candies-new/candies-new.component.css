@@ -1,0 +1,16 @@
+textarea.ng-invalid.ng-touched,
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.dropzone {
+  height: 200px;
+  border: 2px dashed #f16624;
+  border-radius: 5px;
+}
+.dropzone .isHovering {
+  border: 2px solid #f16624;
+  color: #dadada !important;
+}
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}

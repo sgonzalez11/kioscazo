@@ -1,0 +1,79 @@
+<h3 class="mb-4">Lista de Golosinas</h3>
+<div *ngIf="candiesI; else noCandies">
+  <table class="table table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <!--<th class="text-center">ID (test)</th>-->
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Descripcion</th>
+        <th class="text-center">Precio</th>
+        <th class="text-center">Operaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candyElement of candiesI">
+        <!--<td class="text-center">{{ candyElement.id }}</td>-->
+        <td class="text-center" (dblclick)="deleteCandie($event, candyElement)">{{ candyElement.name }}</td>
+        <td class="text-center">{{ candyElement.description }}</td>
+        <td class="text-center"><strong><span class="text-danger"> {{ candyElement.price }}</span></strong></td>
+        <td class="text-center">
+            <button class="btn btn-info" (click)="showDetailCandie(candyElement.id)">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="candieEditMode">
+    <div class="row mb-4">
+      <div class="col-xs-12 col-sm-12">
+        <div class="card">
+          <h4 class="card-header text-center">{{ candieIDetail.name }}</h4>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+                <img class="img-fluid" src="{{ candieIDetail.imagepath }}">
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-8">
+                <p class="card-text"><strong>Descripcion:</strong> {{ candieIDetail.description }}</p>
+                <p class="card-text"><strong>Precio: <span class="text-danger"> {{ candieIDetail.price }} </span></strong></p>
+                <form [formGroup]="purchasesForm" (ngSubmit)="onNewPurchase()">
+                  <div class="form-row">
+                    <div class="form-group col-xs-12 col-sm-6">
+                      <label for="typeahead-basic">Email:</label>
+                      <input
+                        id="typeahead-basic"
+                        name="typeahead-basic"
+                        type="text"
+                        class="form-control"
+                        formControlName="email"
+                        [(ngModel)]="model"
+                        [ngbTypeahead]="search">
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-6">
+                      <label for="quantity">Cantidad:</label>
+                      <select
+                        class="form-control"
+                        id="quantity"
+                        name="quantity"
+                        formControlName="quantity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" [disabled]="!purchasesForm.valid" class="btn btn-danger">Comprar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noCandies>
+  <h5>No hay golosinas cargadas aun</h5>
+</ng-template>

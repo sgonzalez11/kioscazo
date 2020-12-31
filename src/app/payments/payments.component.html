@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 offset-sm-1">
+      <table class="table table-responsive-sm table-striped">
+        <thead class="thead-dark p-lg-0">
+          <tr>
+            <!--<th class="text-center">ID (test)</th>-->
+            <th class="text-center">Email</th>
+            <th class="text-center">Periodo</th>
+            <th class="text-center">Total</th>
+            <th class="text-center">Pagado</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let purchaseElement of purchases">
+          <!--<td class="text-center">{{ candyElement.id }}</td>-->
+          <td class="text-center">{{ purchaseElement.email }}</td>
+          <td class="text-center">test</td>
+          <td class="text-center">{{ purchaseElement.price }}</td>
+          <td class="text-center">
+            <button class="btn btn-info">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
