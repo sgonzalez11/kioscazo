@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
-import { Subject } from "rxjs";
-import { Candies } from "../shared/candies.model";
+import { Injectable } from '@angular/core';
+// import { Http, Response } from "@angular/http";
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { Candies } from '../shared/candies.model';
 
 
 @Injectable()
@@ -9,7 +10,7 @@ export class CandiesService {
 
   candiesChanged = new Subject<Candies[]>();
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   private candies: Candies[] = [
     new Candies('Chocolina',

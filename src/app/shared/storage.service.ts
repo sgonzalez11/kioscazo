@@ -5,6 +5,7 @@ import { CandiesService } from '../candies/candies.service';
 import 'rxjs/Rx';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
+import { map, filter, switchMap } from 'rxjs/operators';
 import { Candies } from './candies.model';
 import { CandiesI } from './candies';
 import { PurchasesI } from './purchases';
