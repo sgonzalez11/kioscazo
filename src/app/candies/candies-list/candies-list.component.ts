@@ -50,7 +50,7 @@ export class CandiesListComponent implements OnInit {
   public model: any;
   search = (text$: Observable<string>) => text$.debounceTime(200)
             .distinctUntilChanged()
-            .map(term => term.length < 2 ? [] : this.emailsSantex.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
+            .map(term => term.length < 2 ? [] : this.emailsSantex.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
 
   ngOnInit() {
     this.storageService.getData()

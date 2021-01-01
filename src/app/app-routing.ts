@@ -1,11 +1,11 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from "./home/home.component";
-import { CandiesComponent } from "./candies/candies.component";
-import { CandiesNewComponent } from "./candies/candies-new/candies-new.component";
-import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from "./register/register.component";
-import { PaymentsComponent } from "./payments/payments.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { CandiesComponent } from './candies/candies.component';
+import { CandiesNewComponent } from './candies/candies-new/candies-new.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
